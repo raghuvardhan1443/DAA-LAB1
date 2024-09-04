@@ -1,0 +1,12 @@
+def fibbonic(n):
+    if(n<=o):
+      return 0
+    elseif(n==1):
+      return 1
+    else:
+    return fiboonic(n-1)+fibbonic(n-2)
+
+n=10
+for i in range(n)
+print(fibbonic(i))
+    
