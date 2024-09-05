@@ -1,0 +1,17 @@
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+array = [3, 6, 8, 10, 1, 2, 1]
+# Sorting the array
+sorted_array = quick_sort(array)
+# Finding maximum and minimum
+maximum = sorted_array[-1]
+minimum = sorted_array[0]
+print("Sorted Array:", sorted_array)
+print("Maximum:", maximum)
+print("Minimum:", minimum)
