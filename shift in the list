@@ -1,0 +1,10 @@
+def string_shift(s, shift):
+    total_shift = 0
+    for direction, amount in shift:
+        total_shift += amount if direction == 0 else -amount
+    total_shift %= len(s)
+    return s[-total_shift:] + s[:-total_shift]
+s = "abc"
+shift = [[0, 1], [1, 2]]
+result = string_shift(s, shift)
+print(result)  
