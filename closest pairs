@@ -1,0 +1,21 @@
+import math
+
+def closest_pair(points):
+    points.sort(key=lambda x: x[0])
+    def closest_util(px, py):
+        if len(px) <= 3:
+            return min((math.dist(px[i], px[j]), (px[i], px[j])) for i in range(len(px)) for j in range(i + 1, len(px)))
+        mid = len(px) // 2
+        mid_point = px[mid]
+        pyl = [p for p in py if p[0] <= mid_point[0]]
+        pyr = [p for p in py if p[0] > mid_point[0]]
+        dl = closest_util(px[:mid], pyl)
+        dr = closest_util(px[mid:], pyr)
+        d = min(dl[0], dr[0])
+        strip = [p for p in py if abs(p[0] - mid_point[0]) < d]
+        return min((d, None), min((math.dist(p, q), (p, q)) for i, p in enumerate(strip) for q in strip[i + 1:i + 7]), key=lambda x: x[0])
+
+    return closest_util(points, sorted(points, key=lambda x: x[1]))
+
+points = [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+print(closest_pair(points))
