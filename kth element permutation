@@ -1,0 +1,15 @@
+def get_permutation(n, k):
+    from math import factorial
+    numbers = list(range(1, n + 1))
+    k -= 1  # Convert to zero-based index
+    permutation = []
+    for i in range(n):
+        fact = factorial(n - 1 - i)
+        index = k // fact
+        permutation.append(str(numbers[index]))
+        numbers.pop(index)
+        k %= fact
+    return ''.join(permutation)
+n = 4
+k = 9
+print(get_permutation(n, k))  # Output: "2314"
