@@ -1,0 +1,7 @@
+def findMaxMin(nums):
+    max_value = max(nums)
+    min_value = min(nums)
+    return max_value, min_value
+nums = [3, 5, 1, 8, -2, 7]
+max_value, min_value = findMaxMin(nums)
+print(f"Maximum: {max_value}, Minimum: {min_value}")
